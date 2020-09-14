@@ -1,5 +1,5 @@
 def selection_sort(arr):
-    if len(arr) > 1:
+    if arr:
         for i in range(len(arr)):
             cur_index = i
             smallest_index = cur_index
@@ -12,7 +12,7 @@ def selection_sort(arr):
 
 # TO-DO:  implement the Bubble Sort function below
 def bubble_sort(arr):
-    if len(arr) > 1:
+    if arr:
         for i in range(len(arr)):
             for j in range(len(arr) - i - 1):
                 if arr[j] > arr[j + 1]:
@@ -40,7 +40,7 @@ What is the time and space complexity of the counting sort algorithm?
 
 
 def counting_sort(arr, maximum=None):
-    if len(arr) > 0:
+    if arr:
         if not maximum:
             maximum = arr[0]
             for num in arr:
@@ -51,14 +51,16 @@ def counting_sort(arr, maximum=None):
                         maximum = num
 
         count = [0] * (maximum + 1)
+        sum_count = [0] * (maximum + 1)
+        output = [0] * len(arr)
+        
         for num in arr:
             count[num] += 1
-        sum_count = [0] * (maximum + 1)
-        for i, num in enumerate(sum_count):
+        for i in range(len(sum_count)):
             sum_count[i] = sum_count[i - 1] + count[i]
-        output = [0] * len(arr)
         for num in arr:
             output[sum_count[num] - 1] = num
             sum_count[num] -= 1
         arr = output
+
     return arr
