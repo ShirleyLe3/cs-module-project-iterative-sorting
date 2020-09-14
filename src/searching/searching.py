@@ -1,5 +1,5 @@
 def linear_search(arr, target):
-    if len(arr) > 0:
+    if arr:
         for i, num in enumerate(arr):
             if num == target:
                 return i
@@ -8,9 +8,8 @@ def linear_search(arr, target):
 
 # Write an iterative implementation of Binary Search
 def binary_search(arr, target):
-    if len(arr) > 0:
-        left = 0
-        right = len(arr) - 1
+    if arr:
+        left, right = 0, len(arr) - 1
         while right >= left:
             middle = (left + right) // 2
             if target == arr[middle]:
