@@ -44,14 +44,14 @@ def counting_sort(arr, maximum=None):
             maximum = max(arr)
 
         count = [0] * (maximum + 1)
-        sum_count = [0] * (maximum + 1)
+        sum_count = count.copy()
         output = [0] * len(arr)
         
         for num in arr:
             if num < 0:
                 return "Error, negative numbers not allowed in Count Sort"
             count[num] += 1
-        for i in range(len(sum_count)):
+        for i in range(len(count)):
             sum_count[i] = sum_count[i - 1] + count[i]
         for num in arr:
             output[sum_count[num] - 1] = num
