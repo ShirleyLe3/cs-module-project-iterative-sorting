@@ -43,17 +43,16 @@ def counting_sort(arr, maximum=None):
         if not maximum:
             maximum = arr[0]
             for num in arr:
-                if num < 0:
-                    return "Error, negative numbers not allowed in Count Sort"
-                else:
-                    if num > maximum:
-                        maximum = num
+                if num > maximum:
+                    maximum = num
 
         count = [0] * (maximum + 1)
         sum_count = [0] * (maximum + 1)
         output = [0] * len(arr)
         
         for num in arr:
+            if num < 0:
+                return "Error, negative numbers not allowed in Count Sort"
             count[num] += 1
         for i in range(len(sum_count)):
             sum_count[i] = sum_count[i - 1] + count[i]
