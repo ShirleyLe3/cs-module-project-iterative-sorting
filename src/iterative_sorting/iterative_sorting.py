@@ -1,8 +1,7 @@
 def selection_sort(arr):
     if arr:
         for i in range(len(arr)):
-            cur_index = i
-            smallest_index = cur_index
+            smallest_index = i
             for j in range(i + 1, len(arr)):
                 if arr[j] < arr[smallest_index]:
                     smallest_index = j
