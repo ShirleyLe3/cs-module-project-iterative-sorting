@@ -41,10 +41,7 @@ What is the time and space complexity of the counting sort algorithm?
 def counting_sort(arr, maximum=None):
     if arr:
         if not maximum:
-            maximum = arr[0]
-            for num in arr:
-                if num > maximum:
-                    maximum = num
+            maximum = max(arr)
 
         count = [0] * (maximum + 1)
         sum_count = [0] * (maximum + 1)
